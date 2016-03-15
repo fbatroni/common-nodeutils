@@ -1,6 +1,6 @@
 {
   "name": "common-nodeutils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Commonly used node functionality",
   "homepage": "git@github.com:fbatroni/common-nodeutils.git",
   "author": {
