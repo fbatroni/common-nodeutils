@@ -1,0 +1,47 @@
+{
+  "name": "common-nodeutils",
+  "version": "0.0.0",
+  "description": "Commonly used node functionality",
+  "homepage": "git@github.com:fbatroni/common-nodeutils.git",
+  "author": {
+    "name": "Fritz G. Batroni",
+    "email": "fritz.g.batroni@gmail.com",
+    "url": "https://fritzbatroni.wordpress.com/"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "node functions",
+    "common",
+    "library"
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-coveralls": "^0.1.0",
+    "coffee-script": "^1.10.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "gulp-coffeelint": "^0.6.0",
+    "chai": "^3.5.0",
+    "logtrap": "0.0.1"
+  },
+  "repository": "fbatroni/common-nodeutils",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "log4js": "^0.6.33",
+    "lodash": "^4.6.1",
+    "node-uuid": "^1.4.7"
+  }
+}
