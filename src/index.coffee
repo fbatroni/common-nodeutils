@@ -1,4 +1,4 @@
 logger = require './logger'
 
-module.exports = 
+module.exports =
   logger: logger

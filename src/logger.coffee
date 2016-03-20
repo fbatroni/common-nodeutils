@@ -1,25 +1,25 @@
-util  = require 'util'   
+util  = require 'util'
 _     = require 'lodash'
 uuid  = require 'node-uuid'
-path  = require 'path'   
-fs    = require 'fs' 
+path  = require 'path'
+fs    = require 'fs'
 
 
 formatMessage = (args) ->
-  _(args).map((a) -> 
+  _(args).map((a) ->
     a = JSON.stringify a unless _.isString(a)
     a
   )
 
 log =
-  error: (args...) ->       
-      id = args[0]?.contextId || uuid.v4()
-      err = 
-        msg: "[ERROR] #{id} #{formatMessage args}"
-        uuid: id
-      util.log err.msg 
-      console.error args[0]?.stack if args[0]?.stack
-      err
+  error: (args...) ->
+    id = args[0]?.contextId || uuid.v4()
+    err =
+      msg: "[ERROR] #{id} #{formatMessage args}"
+      uuid: id
+    util.log err.msg
+    console.error args[0]?.stack if args[0]?.stack
+    err
 
   info: (args...) -> util.log "[INFO] #{formatMessage args}"
   warn: (args...) -> util.log "[WARN] #{formatMessage args}"
