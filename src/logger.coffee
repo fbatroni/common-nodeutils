@@ -15,7 +15,7 @@ log =
   error: (args...) ->       
       id = args[0]?.contextId || uuid.v4()
       err = 
-        msg: "[ERROR] #{id} \n #{formatMessage args}"
+        msg: "[ERROR] #{id} #{formatMessage args}"
         uuid: id
       util.log err.msg 
       console.error args[0]?.stack if args[0]?.stack
@@ -26,15 +26,18 @@ log =
   test: (args...) ->
     if process.env.DEBUG
       util.log "[TEST] #{formatMessage args}"
-  debug: (args...) ->
-    if process.env.DEBUG
+  debug: (forceDebug, args...) ->
+    if forceDebug
+      process.env.DEBUG = true
+      util.log "[DEBUG] #{formatMessage args}"
+      delete(process.env.DEBUG)
+    else
       util.log "[DEBUG] #{formatMessage args}"
   event: (args...) ->
     if process.env.DEBUG
       util.log "[EVENT] #{formatMessage args}"
   pp: (msg, obj) ->
     util.log "[DEBUG] #{msg} \n\n #{util.inspect obj, { showHidden: false, depth: null}} \n\n"
-
 
 module.exports = (category, filename) ->
   if category?

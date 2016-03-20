@@ -24,7 +24,7 @@ gulp.task 'clean', (done)->
   ], done
 
 gulp.task 'coffeelint', ['clean'], ->
-  gulp.src 'app/scripts/**/*.coffee'
+  gulp.src 'src/**/*.coffee'
   .pipe cache( 'js' )
   .pipe coffeelint()
   .pipe(coffeelint.reporter())
