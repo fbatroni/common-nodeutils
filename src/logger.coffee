@@ -46,7 +46,7 @@ module.exports = (category, filename) ->
       logDir = path.dirname(filename)
       if !fs.existsSync(logDir)
         fs.mkdirSync(logDir)
-      options = {filename: filename} 
+      options = {filename: filename}
     else
       options = {filename: "#{category}.log"}
     log4js.configure( require( './config/log4js' )(options) )
@@ -62,10 +62,10 @@ module.exports = (category, filename) ->
     # TRACE traces are logged
     # ALL everything is logged
     # The levels are cumulative.
-    ## If you for example set the logging level to WARN all warnings, errors and fatals are logged: 
+    ## If you for example set the logging level to WARN all warnings, errors and fatals are logged:
 
     logger.setLevel (process.env.LOG_LEVEL or 'INFO')
     return logger
-  else 
-    return log 
+  else
+    return log
     
