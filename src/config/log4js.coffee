@@ -47,15 +47,17 @@ else
 
 
 module.exports = (options) ->
-  appenders: [
-    {
-      type: "console"
-      layout:
-        type: "pattern"
-        pattern: "%x{z}[%x{z}%x{b}%d%x{z}] %p %x{w}%c%x{z} #{colorStart}%x{M}#{colorEnd}"
-        tokens: tokens
-    }
-    {
+  consoleLog =
+    type: "console"
+    layout:
+      type: "pattern"
+      pattern: "%x{z}[%x{z}%x{b}%d%x{z}] %p %x{w}%c%x{z} #{colorStart}%x{M}#{colorEnd}"
+      tokens: tokens
+
+  appenders = [consoleLog]
+
+  if options.fileName
+    fileLog =
       type: "file"
       maxLogSize: 1024
       backups: 3
@@ -65,5 +67,6 @@ module.exports = (options) ->
         pattern: "[%d] %p %c %x{M}"
         tokens:
           M: format
-    }
-  ]
+    appenders.push fileLog
+
+  appenders: appenders
